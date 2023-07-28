@@ -21,6 +21,9 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
     devDependencies:
+      '@stencil/sass':
+        specifier: ^3.0.5
+        version: 3.0.5(@stencil/core@4.0.0)
       '@types/jest':
         specifier: ^27.5.2
         version: 27.5.2
@@ -669,7 +672,15 @@ packages:
     resolution: {integrity: sha512-BR1MBv2315qKJ7aukIZ5i9cYYyMWktS7WNAsCl5Q9ZQRtUiNhw4LZd0xuvyZDXy+eQ4O/W3Qs4FHTCBNhYjarQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
-    dev: false
+
+  /@stencil/sass@3.0.5(@stencil/core@4.0.0):
+    resolution: {integrity: sha512-9nyllMXOEvHywo6fP2iwXgnq32A+OOUE36Aq7iUjzwT3wdr04qsvupO1JNIyRvmvCDF15hOKXztrZH1/wDu2Zg==}
+    engines: {node: '>=12.0.0', npm: '>=6.0.0'}
+    peerDependencies:
+      '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
+    dependencies:
+      '@stencil/core': 4.0.0
+    dev: true
 
   /@tootallnate/once@1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
