@@ -9,6 +9,26 @@
     <script nomodule src="/build/sten-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <!-- <my-component></my-component> -->
+    <n-table/>
+    <script>
+      const tableDom = document.querySelector('n-table');
+      tableDom.columns = [
+        {
+          title: '姓名',
+          render: (row) => `<div>${row.name}</div>`,
+        },
+        {
+          title: '年龄',
+          render: (row) => `<div>${row.age}</div>`,
+        }
+      ];
+      tableDom.data = [
+        {
+          name: 'Stencil',
+          age: 28,
+        }
+      ];
+    </script>
   </body>
 </html>

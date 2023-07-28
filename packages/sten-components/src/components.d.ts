@@ -20,6 +20,11 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface NTable {
+        "columns": Array<any>;
+        "data": Array<any>;
+        "height": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +33,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLNTableElement extends Components.NTable, HTMLStencilElement {
+    }
+    var HTMLNTableElement: {
+        prototype: HTMLNTableElement;
+        new (): HTMLNTableElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "n-table": HTMLNTableElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +59,14 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface NTable {
+        "columns"?: Array<any>;
+        "data"?: Array<any>;
+        "height"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "n-table": NTable;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +74,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "n-table": LocalJSX.NTable & JSXBase.HTMLAttributes<HTMLNTableElement>;
         }
     }
 }

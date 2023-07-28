@@ -29,7 +29,9 @@
     "@types/node": "^16.18.11",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "puppeteer": "^20.7.3"
+    "puppeteer": "^20.7.3",
+    "@stencil/sass": "^3.0.5"
+
   },
   "license": "MIT"
 }

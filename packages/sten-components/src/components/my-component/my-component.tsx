@@ -27,6 +27,6 @@ export class MyComponent {
   }
 
   render() {
-    return <div>Hello, World! I'm cc{this.getText()}</div>;
+    return <div class='my-box'>Hello, World! I'm cc{this.getText()}</div>;
   }
 }
