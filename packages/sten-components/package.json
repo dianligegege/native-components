@@ -25,13 +25,13 @@
     "@stencil/core": "^4.0.0"
   },
   "devDependencies": {
+    "@stencil/sass": "^3.0.5",
+    "@stencil/vue-output-target": "^0.8.6",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.11",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "puppeteer": "^20.7.3",
-    "@stencil/sass": "^3.0.5"
-
+    "puppeteer": "^20.7.3"
   },
   "license": "MIT"
 }

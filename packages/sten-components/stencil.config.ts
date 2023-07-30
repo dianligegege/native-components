@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
   namespace: 'sten-components',
@@ -18,6 +19,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    vueOutputTarget({
+      componentCorePackage: 'sten-components',
+      proxiesFile: '../vue-project/lib/components.ts',
+    }),
   ],
   testing: {
     browserHeadless: "new",

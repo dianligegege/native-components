@@ -22,6 +22,9 @@ export class NTable {
         class='table-wrapper'
         style={{height: this.height}}
       >
+        567898
+        <div>{this.columns}</div>
+        <div>{this.data}</div>
         <table>
           <thead>
             <tr>

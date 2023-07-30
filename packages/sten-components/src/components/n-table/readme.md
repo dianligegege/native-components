@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default |
-| --------- | --------- | ----------- | -------- | ------- |
-| `columns` | --        |             | `any[]`  | `[]`    |
-| `data`    | --        |             | `any[]`  | `[]`    |
-| `height`  | `height`  |             | `string` | `'0px'` |
+| Property  | Attribute | Description | Type     | Default  |
+| --------- | --------- | ----------- | -------- | -------- |
+| `columns` | --        |             | `any[]`  | `[]`     |
+| `data`    | --        |             | `any[]`  | `[]`     |
+| `height`  | `height`  |             | `string` | `'auto'` |
 
 
 ----------------------------------------------
