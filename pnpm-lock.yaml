@@ -47,6 +47,9 @@ importers:
 
   packages/vue-project:
     dependencies:
+      '@loganzhang/sten-components':
+        specifier: workspace:^
+        version: link:../sten-components
       sten-components:
         specifier: ^0.0.2
         version: 0.0.2

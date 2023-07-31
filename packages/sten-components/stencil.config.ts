@@ -19,10 +19,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
-    vueOutputTarget({
-      componentCorePackage: 'sten-components',
-      proxiesFile: '../vue-project/lib/components.ts',
-    }),
+    // vueOutputTarget({
+    //   componentCorePackage: 'sten-components',
+    //   proxiesFile: '../vue-lib/components.ts',
+    // }),
   ],
   testing: {
     browserHeadless: "new",

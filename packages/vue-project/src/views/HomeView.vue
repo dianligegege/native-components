@@ -1,15 +1,15 @@
-<script setup lang="ts">
+<script setup lang="jsx">
 import { reactive } from 'vue';
-import { MyComponent } from '../../lib/components';
+import Hello from './hello';
 
 const columns = reactive([
   {
     title: '姓名',
-    render: (row:any) => `<div>${row.name}</div>`,
+    render: (row) => <div>{row.name}</div>,
   },
   {
     title: '年龄',
-    render: (row:any) => `<div>${row.age}</div>`,
+    render: (row) => <div>{row.age}</div>,
   }
 ]);
 const tableData = reactive([
@@ -21,7 +21,7 @@ const tableData = reactive([
 </script>
 
 <template>
-  <MyComponent/>
+  <Hello/>
   <n-table :columns="columns" :data="tableData">123</n-table>
   <my-components></my-components>
 </template>

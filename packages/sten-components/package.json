@@ -1,6 +1,6 @@
 {
-  "name": "sten-components",
-  "version": "0.0.1",
+  "name": "@loganzhang/sten-components",
+  "version": "0.1.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

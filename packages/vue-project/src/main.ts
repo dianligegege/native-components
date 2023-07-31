@@ -1,5 +1,5 @@
 import './assets/main.css'
-import { applyPolyfills, defineCustomElements } from 'sten-components/loader/index';
+import { applyPolyfills, defineCustomElements } from '@loganzhang/sten-components/loader';
 
 
 import { createApp } from 'vue'
