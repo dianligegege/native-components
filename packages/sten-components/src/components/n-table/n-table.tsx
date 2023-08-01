@@ -5,6 +5,7 @@ import { Nrender } from './n-render';
   tag: 'n-table',
   styleUrl: 'n-table.scss',
   shadow: true,
+  // scoped: true,
 })
 
 export class NTable {

@@ -28,3 +28,9 @@ const tableData = reactive([
     <p slot="my-slot">12345566</p>
   </n-table>
 </template>
+
+<style>
+p {
+  color: red;
+}
+</style>
