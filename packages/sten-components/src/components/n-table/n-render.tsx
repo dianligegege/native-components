@@ -13,8 +13,7 @@ export const Nrender:FunctionalComponent<NRenderProps> = ({ row, renderFun }) =>
   // template.innerHTML = renderFun(row);
 
   return (
-    <div>
-      {renderFun(row)}
+    <div innerHTML={renderFun(row)}>
       {/* {parser.parseFromString('<div>Stencil</div>', 'text/html').body}; */}
       {/* {template.content} */}
       {/* {renderFun(row)} */}

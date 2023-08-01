@@ -22,6 +22,7 @@ export class NTable {
         class='table-wrapper'
         style={{height: this.height}}
       >
+        <slot name="my-slot"/>
         <table>
           <thead>
             <tr>
@@ -38,7 +39,8 @@ export class NTable {
                 return <tr class="tr">
                   {
                     this.columns.map((item) => {
-                      return <td>
+                      return <td >
+                        {/* {item.render(row)} */}
                         <Nrender row={row} renderFun={item.render}></Nrender>
                       </td>
                     })
