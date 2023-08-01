@@ -10,7 +10,7 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith('n-')
+          isCustomElement: (tag) => tag.includes('-')
         }
       }
     }),

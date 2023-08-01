@@ -1,15 +1,18 @@
-<script setup lang="jsx">
+<script setup lang="ts">
 import { reactive } from 'vue';
-import Hello from './hello';
 
 const columns = reactive([
   {
     title: '姓名',
-    render: (row) => <div>{row.name}</div>,
+    render: (row: any) => `<div>${row.name}</div>`,
   },
   {
     title: '年龄',
-    render: (row) => <div>{row.age}</div>,
+    render: (row: any) => `<div>${row.age}</div>`,
+    // render: (row: any) => {
+    //   return h('div', row.age)
+    // }
+    // render: () => h(myHello),
   }
 ]);
 const tableData = reactive([
@@ -21,7 +24,7 @@ const tableData = reactive([
 </script>
 
 <template>
-  <Hello/>
-  <n-table :columns="columns" :data="tableData">123</n-table>
-  <my-components></my-components>
+  <n-table :columns="columns" :data="tableData">
+    <p slot="my-slot">12345566</p>
+  </n-table>
 </template>
