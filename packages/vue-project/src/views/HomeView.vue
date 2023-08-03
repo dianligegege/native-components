@@ -1,36 +1,98 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+// import { NTable } from '../../../vue-lib/components';
 
-const columns = reactive([
+const columns = [
   {
-    title: '姓名',
+    key: 'name',
     render: (row: any) => `<div>${row.name}</div>`,
+    type: 'fixedLeft',
   },
   {
     title: '年龄',
+    key: 'age',
     render: (row: any) => `<div>${row.age}</div>`,
-    // render: (row: any) => {
-    //   return h('div', row.age)
-    // }
-    // render: () => h(myHello),
-  }
-]);
-const tableData = reactive([
+  },
   {
-    name: 'Stencil',
-    age: 28,
+    title: '年龄',
+    key: 'age',
+    render: (row: any) => `<div>${row.age}</div>`,
+  },
+  {
+    title: '年龄',
+    key: 'age',
+    render: (row: any) => `<div>${row.age}</div>`,
+  },
+  {
+    title: '身高',
+    key: 'height',
+    type: 'fixedRight',
   }
+];
+
+let tableData = ref([
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
+  {
+    name: 'StencilStencilStencilStencil',
+    age: 28282828282828,
+    height: 199199199199199,
+  },
 ]);
+
 </script>
 
 <template>
-  <n-table :columns="columns" :data="tableData">
-    <p slot="my-slot">12345566</p>
+  <n-table
+    :columns="columns"
+    :data="tableData"
+    :fixedHead="true"
+    height="500px"
+  >
+    <p slot="name">姓名</p>
+    <p slot="age">年龄</p>
   </n-table>
 </template>
 
 <style>
-p {
-  color: red;
+.table-wrapper {
 }
 </style>

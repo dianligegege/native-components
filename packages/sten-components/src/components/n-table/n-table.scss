@@ -1,11 +1,13 @@
+@import url('../../global.css');
+
 :host {
   display: block;
   background: black;
 
   --color-bg: #202127;
-  --color-base-45: #fff;
+  --color-bg-hover: #4d4f5d;
+  --color-font: #fff;
 }
-
 
 .table-wrapper-hidden {
     width: 100%;
@@ -51,7 +53,8 @@
         .fixed-shadow {
             content: '';
             width: 3px;
-            box-shadow: 4px 0 4px rgb(0 0 0 / 60%);
+            // box-shadow: 4px 0 4px rgb(0 0 0 / 60%);
+            box-shadow: 4px 0 4px #fff;
             position: absolute;
             right: 0;
             top: 0;
@@ -63,7 +66,8 @@
         .fixed-shadow {
             content: '';
             width: 4px;
-            box-shadow: -4px 0 4px rgb(0 0 0 / 60%);
+            // box-shadow: -4px 0 4px rgb(0 0 0 / 60%);
+            box-shadow: -4px 0 4px #fff;
             position: absolute;
             left: 0;
             top: 0;
@@ -71,24 +75,24 @@
         }
     }
 
-    thead {
-        .fixed-left,
-        .fixed-right {
-            .fixed-shadow {
-                height: 31px;
-            }
-        }
-    }
+    // thead {
+    //     .fixed-left,
+    //     .fixed-right {
+    //         .fixed-shadow {
+    //             height: 31px;
+    //         }
+    //     }
+    // }
 
-    tbody {
-        .fixed-shadow {
-            height: 100%;
-        }
+    // tbody {
+    //     .fixed-shadow {
+    //         height: 100%;
+    //     }
 
-        tr:not(:first-child) .fixed-shadow {
-            height: 100% !important;
-        }
-    }
+    //     tr:not(:first-child) .fixed-shadow {
+    //         height: 100% !important;
+    //     }
+    // }
 
     table {
         width: 100%;
@@ -102,11 +106,8 @@
             height: 23px;
             vertical-align: middle;
             min-width: 84px;
-            color: #fff;
-
-            &:first-child {
-                padding-left: 24px;
-            }
+            color: var(--color-font);
+            padding-left: 12px;
         }
 
         thead {
@@ -121,8 +122,7 @@
 
                 th {
                     padding: 4px 12px;
-                    color: var(--color-base-45);
-                    background-color: var(--color-bg);
+                    color: var(--color-font);
 
                     &.fix-right {
                         text-align: left;
@@ -133,24 +133,17 @@
 
         tbody {
             tr {
+                background-color: var(--color-bg);
+
                 &:hover {
-                    background-color: #22232a;
+                    background-color: var(--color-bg-hover);
 
                     .fixed-left {
-                        min-width: max-content;
-                        background-color: #22232a;
+                        background-color: var(--color-bg-hover);
                     }
 
-                    :deep(td) {
-                        line-height: 40px;
-
-                        a {
-                            color: #fdb01a;
-
-                            svg {
-                                visibility: visible;
-                            }
-                        }
+                    .fixed-right {
+                        background-color: var(--color-bg-hover);
                     }
                 }
 
@@ -158,79 +151,6 @@
                     padding: 0 12px;
                     height: 40px;
                     line-height: 40px;
-
-                    a {
-                        color: #fff;
-
-                        svg {
-                            visibility: hidden;
-                            margin-left: 4px;
-                        }
-                    }
-
-                    .dark-color {
-                        color: var(--color-base-45);
-                    }
-
-                    .status {
-                        display: flex;
-                        align-items: center;
-                        line-height: 23px;
-                        pointer-events: none;
-
-                        .icon {
-                            position: relative;
-                            display: block;
-                            width: 12px;
-                            min-width: 12px;
-                            height: 12px;
-                            margin-right: 5px;
-                        }
-                    }
-
-                    .detail {
-                        height: 23px;
-                        position: relative;
-                        display: flex;
-                        overflow: hidden;
-                        line-height: 23px;
-
-                        .detail-link {
-                            color: var(--color-main);
-                            cursor: pointer;
-                            display: flex;
-                            align-items: center;
-                            min-width: 26px;
-
-                            i {
-                                color: var(--color-main);
-                                margin-left: 4px;
-                            }
-
-                            &:hover {
-                                color: rgba(249, 184, 51, 1);
-                            }
-                        }
-
-                        .detail-loading {
-                            position: absolute;
-                            width: 20px;
-                            height: 20px;
-                            transform: scale(0.5);
-                            top: 0;
-                            left: 0;
-                        }
-
-                        &.is-loading {
-                            .detail-loading {
-                                visibility: visible;
-                            }
-
-                            .detail-link {
-                                visibility: hidden;
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -278,7 +198,7 @@
 
             td,
             th {
-                background-color: #202127;
+                background-color:var(--color-bg);
 
                 &:first-child {
                     padding-left: 36px;

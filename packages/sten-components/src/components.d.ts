@@ -23,7 +23,11 @@ export namespace Components {
     interface NTable {
         "columns": Array<any>;
         "data": Array<any>;
+        "fixedHead": boolean;
+        "getDom": () => Promise<void>;
         "height": string;
+        "setShadowHeight": () => Promise<void>;
+        "tableClass": string;
     }
 }
 declare global {
@@ -62,7 +66,9 @@ declare namespace LocalJSX {
     interface NTable {
         "columns"?: Array<any>;
         "data"?: Array<any>;
+        "fixedHead"?: boolean;
         "height"?: string;
+        "tableClass"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

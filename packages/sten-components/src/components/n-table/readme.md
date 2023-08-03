@@ -7,11 +7,36 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default  |
-| --------- | --------- | ----------- | -------- | -------- |
-| `columns` | --        |             | `any[]`  | `[]`     |
-| `data`    | --        |             | `any[]`  | `[]`     |
-| `height`  | `height`  |             | `string` | `'auto'` |
+| Property     | Attribute     | Description | Type      | Default           |
+| ------------ | ------------- | ----------- | --------- | ----------------- |
+| `columns`    | --            |             | `any[]`   | `[]`              |
+| `data`       | --            |             | `any[]`   | `[]`              |
+| `fixedHead`  | `fixed-head`  |             | `boolean` | `false`           |
+| `height`     | `height`      |             | `string`  | `''`              |
+| `tableClass` | `table-class` |             | `string`  | `'table-wrapper'` |
+
+
+## Methods
+
+### `getDom() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setShadowHeight() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
