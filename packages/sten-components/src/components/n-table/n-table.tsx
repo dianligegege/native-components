@@ -1,4 +1,5 @@
 import { Component, Prop, h, Element, State, Method, Watch } from '@stencil/core';
+import { combineThrottle } from '../../utils/tools';
 import { Nrender } from './n-render';
 
 @Component({
@@ -19,7 +20,12 @@ export class NTable {
 
   @State() tableShadowDom: HTMLElement = null;
   @State() tableDom: HTMLElement = null;
+  @State() tableWrapperDom: HTMLElement = null;
   @State() tableDomHeight: string = '';
+  @State() initEnd: boolean = false;
+  @State() tableWrapperWidth: number = 0;
+  @State() tableWidth: number = 0;
+  @State() shadowClass: string = 'scroll-none';
 
   // 获取DOM
   @Method()
@@ -30,6 +36,12 @@ export class NTable {
     if (!this.tableDom) {
       this.tableDom = this.el.querySelector('table');
     }
+    if (!this.tableWrapperDom) {
+      this.tableWrapperDom = this.el.querySelector('.__n_table_wrapper');
+    }
+    this.tableWrapperWidth = this.tableWrapperDom.clientWidth;
+    this.tableWidth = this.tableDom.clientWidth;
+    this.initEnd = true;
   }
 
   // 设置阴影高度
@@ -38,21 +50,57 @@ export class NTable {
     this.tableDomHeight = this.height || this.tableDom.offsetHeight + 'px';
   }
 
-  @Watch('data')
-  dataChangeHandle() {
-    this.tableShadowDom = this.el.querySelector('.fixed-shadow');
-    console.log('zl-tableShadowDom', this.tableShadowDom);
+  // 判断阴影是否展示
+  @Method()
+  chargeShadow() {
+    const scrollRight = this.tableWidth - this.tableWrapperWidth;
+    if (scrollRight <= 0) {
+      this.shadowClass = 'scroll-none';
+      return;
+    }
+    const { scrollLeft } = this.tableWrapperDom;
+    const isScrollLeft = scrollLeft === 0;
+    const isScrollRight = Math.abs(scrollRight - scrollLeft) < 1;
+
+    console.log(this.tableWrapperWidth, this.tableWidth);
+    console.log(scrollLeft, scrollRight);
+    console.log(isScrollLeft, isScrollRight);
+    
+
+    if (isScrollLeft) {
+      this.shadowClass = 'scroll-left';
+    } else if (isScrollRight) {
+      this.shadowClass = 'scroll-right';
+    } else {
+      this.shadowClass = 'scroll-middle';
+    }
+  }
+
+  // 监听滚动
+  @Method()
+  async watchScroll() {
+    this.chargeShadow();
+    const scrollHandle = combineThrottle(() => {
+      this.chargeShadow();
+    }, 0);
+    this.tableWrapperDom.addEventListener('scroll', scrollHandle);
+  }
+
+  // 数据初始化完毕
+  @Watch('initEnd')
+  watchInitEnd() {
+    this.setShadowHeight();
+    this.watchScroll();
   }
 
   async componentDidRender() {
     await this.getDom();
-    this.setShadowHeight();
   }
 
   render() {
     return (
       <div
-        class={this.tableClass}
+        class={`${this.tableClass}  __n_table_wrapper ${this.shadowClass}`}
         style={{height: this.height}}
       >
         <slot name="my-slot"/>

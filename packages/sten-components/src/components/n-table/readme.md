@@ -18,6 +18,16 @@
 
 ## Methods
 
+### `chargeShadow() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `getDom() => Promise<void>`
 
 
@@ -29,6 +39,16 @@ Type: `Promise<void>`
 
 
 ### `setShadowHeight() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `watchScroll() => Promise<void>`
 
 
 

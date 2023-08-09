@@ -21,6 +21,7 @@ export namespace Components {
         "middle": string;
     }
     interface NTable {
+        "chargeShadow": () => Promise<void>;
         "columns": Array<any>;
         "data": Array<any>;
         "fixedHead": boolean;
@@ -28,6 +29,7 @@ export namespace Components {
         "height": string;
         "setShadowHeight": () => Promise<void>;
         "tableClass": string;
+        "watchScroll": () => Promise<void>;
     }
 }
 declare global {
