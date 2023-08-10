@@ -38,7 +38,7 @@ Type: `Promise<void>`
 
 
 
-### `setShadowHeight() => Promise<void>`
+### `getSize() => Promise<void>`
 
 
 

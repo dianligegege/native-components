@@ -85,7 +85,7 @@ let tableData = ref([
     :columns="columns"
     :data="tableData"
     :fixedHead="true"
-    height="500px"
+    height="100%"
   >
     <p slot="name">姓名</p>
     <p slot="age">年龄</p>

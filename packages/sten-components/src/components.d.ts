@@ -26,8 +26,8 @@ export namespace Components {
         "data": Array<any>;
         "fixedHead": boolean;
         "getDom": () => Promise<void>;
+        "getSize": () => Promise<void>;
         "height": string;
-        "setShadowHeight": () => Promise<void>;
         "tableClass": string;
         "watchScroll": () => Promise<void>;
     }

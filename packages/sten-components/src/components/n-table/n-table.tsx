@@ -26,6 +26,7 @@ export class NTable {
   @State() tableWrapperWidth: number = 0;
   @State() tableWidth: number = 0;
   @State() shadowClass: string = 'scroll-none';
+  @State() myResizeObserver;
 
   // 获取DOM
   @Method()
@@ -39,20 +40,20 @@ export class NTable {
     if (!this.tableWrapperDom) {
       this.tableWrapperDom = this.el.querySelector('.__n_table_wrapper');
     }
-    this.tableWrapperWidth = this.tableWrapperDom.clientWidth;
-    this.tableWidth = this.tableDom.clientWidth;
     this.initEnd = true;
   }
 
-  // 设置阴影高度
+  // 获取需要的宽高
   @Method()
-  async setShadowHeight() {
-    this.tableDomHeight = this.height || this.tableDom.offsetHeight + 'px';
+  async getSize() {
+    this.tableWrapperWidth = this.tableWrapperDom.clientWidth;
+    this.tableWidth = this.tableDom.clientWidth;
+    this.tableDomHeight = this.tableDom.offsetHeight + 'px';
   }
 
   // 判断阴影是否展示
   @Method()
-  chargeShadow() {
+  async chargeShadow() {
     const scrollRight = this.tableWidth - this.tableWrapperWidth;
     if (scrollRight <= 0) {
       this.shadowClass = 'scroll-none';
@@ -61,11 +62,6 @@ export class NTable {
     const { scrollLeft } = this.tableWrapperDom;
     const isScrollLeft = scrollLeft === 0;
     const isScrollRight = Math.abs(scrollRight - scrollLeft) < 1;
-
-    console.log(this.tableWrapperWidth, this.tableWidth);
-    console.log(scrollLeft, scrollRight);
-    console.log(isScrollLeft, isScrollRight);
-    
 
     if (isScrollLeft) {
       this.shadowClass = 'scroll-left';
@@ -76,25 +72,35 @@ export class NTable {
     }
   }
 
-  // 监听滚动
+  // 监听scroll 和 resize
   @Method()
   async watchScroll() {
-    this.chargeShadow();
     const scrollHandle = combineThrottle(() => {
       this.chargeShadow();
     }, 0);
+
+    this.myResizeObserver = new ResizeObserver(() => {
+      this.getSize();
+      scrollHandle();
+    })
+
     this.tableWrapperDom.addEventListener('scroll', scrollHandle);
+    this.myResizeObserver.observe(this.tableWrapperDom);
   }
 
   // 数据初始化完毕
   @Watch('initEnd')
   watchInitEnd() {
-    this.setShadowHeight();
+    this.getSize();
     this.watchScroll();
   }
 
-  async componentDidRender() {
-    await this.getDom();
+  componentDidRender() {
+    this.getDom();
+  }
+
+  disconnectedCallback() {
+    this.myResizeObserver.unobserve(this.tableWrapperDom);
   }
 
   render() {
