@@ -48,7 +48,7 @@ export class NTable {
   async getSize() {
     this.tableWrapperWidth = this.tableWrapperDom.clientWidth;
     this.tableWidth = this.tableDom.clientWidth;
-    this.tableDomHeight = this.tableDom.offsetHeight + 'px';
+    this.tableDomHeight = this.tableWrapperDom.offsetHeight + 'px';
   }
 
   // 判断阴影是否展示

@@ -85,7 +85,7 @@ let tableData = ref([
     :columns="columns"
     :data="tableData"
     :fixedHead="true"
-    height="100%"
+    tableClass="table-wrapper"
   >
     <p slot="name">姓名</p>
     <p slot="age">年龄</p>
@@ -94,5 +94,6 @@ let tableData = ref([
 
 <style>
 .table-wrapper {
+  height: 100vh;
 }
 </style>

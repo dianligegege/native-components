@@ -10,24 +10,84 @@
   </head>
   <body>
     <!-- <my-component></my-component> -->
-    <n-table/>
+    <n-table height="200px"/>
     <script>
       const tableDom = document.querySelector('n-table');
+      tableDom.fixedHead = true;
       tableDom.columns = [
         {
           title: '姓名',
+          key: 'name',
           render: (row) => `<div>${row.name}</div>`,
+          type: 'fixedLeft',
         },
         {
           title: '年龄',
+          key: 'age',
           render: (row) => `<div>${row.age}</div>`,
+        },
+        {
+          title: '年龄',
+          key: 'age',
+          render: (row) => `<div>${row.age}</div>`,
+        },
+        {
+          title: '年龄',
+          key: 'age',
+          render: (row) => `<div>${row.age}</div>`,
+        },
+        {
+          title: '身高',
+          key: 'height',
+          type: 'fixedRight',
         }
       ];
       tableDom.data = [
         {
-          name: 'Stencil',
-          age: 28,
-        }
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
+        {
+          name: 'StencilStencilStencilStencil',
+          age: 28282828282828,
+          height: 199199199199199,
+        },
       ];
     </script>
   </body>

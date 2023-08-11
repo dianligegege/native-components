@@ -1,12 +1,12 @@
 @import url('../../global.css');
 
 :host {
-  display: block;
-  background: black;
+    --color-bg: #202127;
+    --color-bg-hover: #4d4f5d;
+    --color-font: #fff;
 
-  --color-bg: #202127;
-  --color-bg-hover: #4d4f5d;
-  --color-font: #fff;
+    display: block;
+    background: var(--color-bg);
 }
 
 .table-wrapper-hidden {
@@ -53,8 +53,8 @@
         .fixed-shadow {
             content: '';
             width: 3px;
-            // box-shadow: 4px 0 4px rgb(0 0 0 / 60%);
-            box-shadow: 4px 0 4px #fff;
+            box-shadow: 4px 0 4px rgb(0 0 0 / 60%);
+            // box-shadow: 4px 0 4px #fff;
             position: absolute;
             right: 0;
             top: 0;
@@ -67,8 +67,8 @@
         .fixed-shadow {
             content: '';
             width: 4px;
-            // box-shadow: -4px 0 4px rgb(0 0 0 / 60%);
-            box-shadow: -4px 0 4px #fff;
+            box-shadow: -4px 0 4px rgb(0 0 0 / 60%);
+            // box-shadow: -4px 0 4px #fff;
             position: absolute;
             left: 0;
             top: 0;
@@ -205,31 +205,6 @@
                     padding-left: 36px;
                 }
             }
-        }
-    }
-
-    &::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-        width: 5px;
-        height: 5px;
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-corner {
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 5px;
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.4);
         }
     }
 }
